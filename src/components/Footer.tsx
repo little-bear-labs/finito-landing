@@ -1,11 +1,54 @@
-import { LogoIcon } from "./Icons";
+import { DiscordLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
+
+import { LogoIcon, RedditIcon } from './Icons'
 
 export const Footer = () => {
   return (
     <footer id="footer">
-      <hr className="w-11/12 mx-auto" />
+      <hr className="w-[calc(100%-48px)] lg:w-11/12 mx-auto" />
 
-      <section className="container py-20 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8">
+      <section className="container py-6 w-full container flex items-center justify-between">
+        <a
+          rel="noreferrer noopener"
+          href="/"
+          className="font-bold flex items-center text-xl flex gap-2"
+        >
+          <LogoIcon />
+          Finito
+        </a>
+        <div className="flex items-center gap-4">
+          <a
+            rel="noreferrer noopener"
+            href="#"
+            target="_blank"
+            className="hover:text-primary"
+          >
+            <RedditIcon
+              className="fill-current hover:fill-primary"
+              height={24}
+              width={24}
+            />
+          </a>
+          <a
+            rel="noreferrer noopener"
+            href="#"
+            target="_blank"
+            className="hover:text-primary"
+          >
+            <DiscordLogoIcon className="size-6" />
+          </a>
+          <a
+            rel="noreferrer noopener"
+            href="#"
+            target="_blank"
+            className="hover:text-primary"
+          >
+            <TwitterLogoIcon className="size-6" />
+          </a>
+        </div>
+      </section>
+
+      {/* <section className="container py-6 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8">
         <div className="col-span-full xl:col-span-2">
           <a
             rel="noreferrer noopener"
@@ -148,11 +191,11 @@ export const Footer = () => {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="container pb-14 text-center">
         <h3>
-          &copy; 2025 Powered by{" "}
+          &copy; 2025 Powered by{' '}
           <a
             rel="noreferrer noopener"
             target="_blank"
@@ -164,5 +207,5 @@ export const Footer = () => {
         </h3>
       </section>
     </footer>
-  );
-};
+  )
+}

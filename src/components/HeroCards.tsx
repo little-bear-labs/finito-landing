@@ -1,17 +1,19 @@
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Badge } from "./ui/badge";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { GitHubLogoIcon } from '@radix-ui/react-icons'
+import { Check, Linkedin } from 'lucide-react'
+
+import { Button, buttonVariants } from '@/components/ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
-  CardFooter,
-} from "@/components/ui/card";
-import { Check, Linkedin } from "lucide-react";
-import { LightBulbIcon } from "./Icons";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+} from '@/components/ui/card'
+
+import { LightBulbIcon } from './Icons'
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+import { Badge } from './ui/badge'
 
 export const HeroCards = () => {
   return (
@@ -20,10 +22,7 @@ export const HeroCards = () => {
       <Card className="absolute w-[340px] -top-[15px] drop-shadow-xl shadow-black/10 dark:shadow-white/10">
         <CardHeader className="flex flex-row items-center gap-4 pb-2">
           <Avatar>
-            <AvatarImage
-              alt=""
-              src="https://github.com/shadcn.png"
-            />
+            <AvatarImage alt="" src="https://github.com/shadcn.png" />
             <AvatarFallback>SH</AvatarFallback>
           </Avatar>
 
@@ -64,8 +63,8 @@ export const HeroCards = () => {
               href="https://github.com/leoMirandaa"
               target="_blank"
               className={buttonVariants({
-                variant: "ghost",
-                size: "sm",
+                variant: 'ghost',
+                size: 'sm',
               })}
             >
               <span className="sr-only">Github icon</span>
@@ -76,8 +75,8 @@ export const HeroCards = () => {
               href="https://twitter.com/leo_mirand4"
               target="_blank"
               className={buttonVariants({
-                variant: "ghost",
-                size: "sm",
+                variant: 'ghost',
+                size: 'sm',
               })}
             >
               <span className="sr-only">X icon</span>
@@ -97,8 +96,8 @@ export const HeroCards = () => {
               href="https://www.linkedin.com/in/leopoldo-miranda/"
               target="_blank"
               className={buttonVariants({
-                variant: "ghost",
-                size: "sm",
+                variant: 'ghost',
+                size: 'sm',
               })}
             >
               <span className="sr-only">Linkedin icon</span>
@@ -113,10 +112,7 @@ export const HeroCards = () => {
         <CardHeader>
           <CardTitle className="flex item-center justify-between">
             Free
-            <Badge
-              variant="secondary"
-              className="text-sm"
-            >
+            <Badge variant="secondary" className="text-sm">
               Most popular
             </Badge>
           </CardTitle>
@@ -138,16 +134,13 @@ export const HeroCards = () => {
 
         <CardFooter className="flex">
           <div className="space-y-4">
-            {["4 Team member", "4 GB Storage", "Upto 6 pages"].map(
+            {['4 Team member', '4 GB Storage', 'Upto 6 pages'].map(
               (benefit: string) => (
-                <span
-                  key={benefit}
-                  className="flex"
-                >
-                  <Check className="text-green-500" />{" "}
+                <span key={benefit} className="flex">
+                  <Check className="text-green-500" />{' '}
                   <h3 className="ml-2">{benefit}</h3>
                 </span>
-              )
+              ),
             )}
           </div>
         </CardFooter>
@@ -169,5 +162,5 @@ export const HeroCards = () => {
         </CardHeader>
       </Card>
     </div>
-  );
-};
+  )
+}

@@ -1,25 +1,25 @@
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 
-export const Newsletter = () => {
+export const Signup = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault()
     console.log('Subscribed!')
   }
 
   return (
-    <section id="newsletter">
+    <section id="signup">
       <hr className="w-11/12 mx-auto" />
 
       <div className="container py-24 sm:py-32">
         <h3 className="text-center text-4xl md:text-5xl font-bold">
+          Join the{' '}
           <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-           Subscribe{' '}
+            Waitlist
           </span>
-          to our Newsletter
         </h3>
         <p className="text-xl text-muted-foreground text-center mt-4 mb-8">
-          Get the latest news and updates from Finito.
+          Be the first to know when we launch.
         </p>
 
         <form
@@ -31,7 +31,7 @@ export const Newsletter = () => {
             className="bg-muted/50 dark:bg-muted/80 "
             aria-label="email"
           />
-          <Button>Subscribe</Button>
+          <Button>Let me in!</Button>
         </form>
       </div>
 

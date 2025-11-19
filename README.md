@@ -2,7 +2,6 @@
 
 The landing page for [Finito](https://finito.sh/).
 
-
 ## Setup
 
 ```bash
