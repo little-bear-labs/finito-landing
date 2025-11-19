@@ -1,4 +1,5 @@
-import { Radar, TerminalSquare } from 'lucide-react'
+import { TerminalSquare } from 'lucide-react'
+import { ClaudeIcon, CodexIcon, GeminiIcon } from './Icons'
 
 interface IntegrationProps {
   icon: JSX.Element
@@ -7,19 +8,19 @@ interface IntegrationProps {
 
 const integrations: IntegrationProps[] = [
   {
-    icon: <Radar size={34} />,
+    icon: <ClaudeIcon height={34} width={34} />,
     name: 'Claude Code',
   },
   {
-    icon: <Radar size={34} />,
+    icon: <CodexIcon height={24} width={24} className="fill-foreground" />,
     name: 'Codex',
   },
   {
-    icon: <Radar size={34} />,
+    icon: <GeminiIcon height={24} width={24} />,
     name: 'Gemini CLI',
   },
   {
-    icon: <TerminalSquare size={34} />,
+    icon: <TerminalSquare size={24} />,
     name: 'Terminal',
   },
 ]
@@ -35,10 +36,10 @@ export const Integrations = () => {
         {integrations.map(({ icon, name }: IntegrationProps) => (
           <div
             key={name}
-            className="flex items-center gap-1 text-muted-foreground/60"
+            className="flex items-center gap-1.5 text-muted-foreground/60"
           >
             <span>{icon}</span>
-            <h3 className="text-xl  font-bold">{name}</h3>
+            <h3 className="text-xl font-bold text-foreground">{name}</h3>
           </div>
         ))}
       </div>

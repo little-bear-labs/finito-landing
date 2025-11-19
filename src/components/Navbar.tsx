@@ -1,4 +1,4 @@
-import { Download, Menu, Star } from 'lucide-react'
+import { Menu, Star } from 'lucide-react'
 import { useState } from 'react'
 
 import {
@@ -132,8 +132,8 @@ export const Navbar = () => {
           </nav>
 
           <div className="hidden md:flex gap-2">
-                 {/* TODO: Reinstate when download not gated */}
-                  {/* <a
+            {/* TODO: Reinstate when download not gated */}
+            {/* <a
                     rel="noreferrer noopener"
                     href="https://github.com/little-bear-labs/finito-landing.git"
                     target="_blank"
@@ -144,16 +144,16 @@ export const Navbar = () => {
                     <Download className="mr-2 w-5 h-5" />
                     Download
                   </a> */}
-                  <a
-                    rel="noreferrer noopener"
-                    href="#signup"
-                    className={`border ${buttonVariants({
-                      variant: 'default',
-                    })}`}
-                  >
-                    <Star className="mr-2 w-5 h-5 shrink-0" />
-                    Start Now
-                  </a>
+            <a
+              rel="noreferrer noopener"
+              href="#signup"
+              className={`border ${buttonVariants({
+                variant: 'default',
+              })}`}
+            >
+              <Star className="mr-2 w-5 h-5 shrink-0" />
+              Start Now
+            </a>
 
             <ModeToggle />
           </div>

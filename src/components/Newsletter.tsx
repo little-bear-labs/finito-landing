@@ -1,8 +1,10 @@
+import type { FormEvent } from 'react'
+
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 
 export const Newsletter = () => {
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log('Subscribed!')
   }
@@ -14,7 +16,7 @@ export const Newsletter = () => {
       <div className="container py-24 sm:py-32">
         <h3 className="text-center text-4xl md:text-5xl font-bold">
           <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-           Subscribe{' '}
+            Subscribe{' '}
           </span>
           to our Newsletter
         </h3>

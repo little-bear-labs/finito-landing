@@ -3,7 +3,10 @@ import { Button } from './ui/button'
 
 export const Workflow = () => {
   return (
-    <section id="workflow" className="container grid lg:grid-cols-2 place-items-center py-20 md:py-32 gap-10">
+    <section
+      id="workflow"
+      className="container grid lg:grid-cols-2 place-items-center py-20 md:py-32 gap-10"
+    >
       {/* Hero cards sections */}
       <div className="z-10">
         <HeroCardsAlternate />
