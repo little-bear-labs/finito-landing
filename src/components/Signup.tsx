@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 
 import { Button } from './ui/button'
@@ -16,6 +16,9 @@ export const Signup = () => {
   const [email, setEmail] = useState('')
   const [formState, setFormState] = useState<FormState>('INIT')
   const [errorMessage, setErrorMessage] = useState('')
+  const [honeypot, setHoneypot] = useState('')
+  const mountedAtRef = useRef<number>(Date.now())
+  const MIN_SUBMIT_DELAY_MS = 1500
 
   const isValidEmail = (value: string) => /.+@.+/.test(value)
 
@@ -38,6 +41,19 @@ export const Signup = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (formState !== 'INIT') return
+    // Honeypot check (bots often fill every input)
+    if (honeypot.trim().length > 0) {
+      setFormState('ERROR')
+      setErrorMessage('Verification failed, please try again')
+      return
+    }
+    // Time-trap: prevent submissions that are too fast after render
+    const elapsed = Date.now() - mountedAtRef.current
+    if (elapsed < MIN_SUBMIT_DELAY_MS) {
+      setFormState('ERROR')
+      setErrorMessage('That was fast — please try again')
+      return
+    }
     if (!isValidEmail(email)) {
       setFormState('ERROR')
       setErrorMessage('Please enter a valid email')
@@ -61,6 +77,8 @@ export const Signup = () => {
         setEmail('')
         setErrorMessage('')
         setFormState('SUCCESS')
+        setHoneypot('')
+        mountedAtRef.current = Date.now()
         return
       }
 
@@ -118,19 +136,37 @@ export const Signup = () => {
             onChange={(e) => setEmail(e.target.value)}
             disabled={submitting}
           />
+          {/* Honeypot input (hidden). Real users never see or fill this. */}
+          <input
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              left: '-10000px',
+              top: 'auto',
+              width: '1px',
+              height: '1px',
+              overflow: 'hidden',
+              opacity: 0,
+            }}
+          />
           <Button disabled={submitting}>
             {submitting ? 'Please wait...' : 'Let me in!'}
           </Button>
         </form>
 
         {formState === 'SUCCESS' && (
-          <p className="text-sm text-center text-emerald-600 mt-3" aria-live="polite">
-            Thanks! We\'ll be in touch!
+          <p className="text-center font-medium text-success mt-3" aria-live="polite">
+            {`You're in! We'll be in touch soon 🙂`}
           </p>
         )}
         {formState === 'ERROR' && (
-          <p className="text-sm text-center text-red-600 mt-3" aria-live="assertive">
-            {errorMessage || 'Oops! Something went wrong, please try again'}
+          <p className="text-center text-destructive font-medium mt-3" aria-live="assertive">
+            {errorMessage || 'Whoops! Something went awry 🙁, please try again'}
           </p>
         )}
       </div>
