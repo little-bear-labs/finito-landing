@@ -19,7 +19,7 @@ export const Footer = () => {
         <div className="flex items-center gap-4">
           <a
             rel="noreferrer noopener"
-            href="#"
+            href="https://reddit.com/r/finitoapp"
             target="_blank"
             className="hover:text-primary"
           >
@@ -31,7 +31,7 @@ export const Footer = () => {
           </a>
           <a
             rel="noreferrer noopener"
-            href="#"
+            href="https://discord.gg/etGQgdYB"
             target="_blank"
             className="hover:text-primary"
           >
@@ -39,7 +39,7 @@ export const Footer = () => {
           </a>
           <a
             rel="noreferrer noopener"
-            href="#"
+            href="https://x.com/finitodev"
             target="_blank"
             className="hover:text-primary"
           >
